@@ -115,11 +115,11 @@ var spaRoutes = {
         utils.renderPageTemplate("#home-page-template");
     },
     "#Signin": function(url) {
-        console.log('about was called...');
+        console.log('Sign In was called...');
         utils.renderPageTemplate("#signin-page-template");
     },
     "#Signup": function(url) {
-        console.log('contact was called...');
+        console.log('Sign Up was called...');
         utils.renderPageTemplate("#signup-page-template");
     }
 };

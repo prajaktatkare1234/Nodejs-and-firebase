@@ -35,9 +35,9 @@ router.post('/',function(req,res)
   {
   res.send({"status":true,"message":"password can't be empty"});
   }
-  else if(pwd!==repwd){
-    res.send({"status":true,"message":"passwords are not same"});
-  }
+  // else if(pwd!==repwd){
+  //   res.send({"status":true,"message":"passwords are not same"});
+  // }
 
 
   else
@@ -63,7 +63,7 @@ if(s.val()===null){
          date:d+""
       });
       res.send({
-        "status":true,"message":"successfully"
+        "status":true,"message":" Registered successfully"
       })
   }
   else {

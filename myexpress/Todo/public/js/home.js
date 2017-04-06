@@ -1,5 +1,33 @@
 $(document).ready(function() {
-    // alert("fgfd");
+
+    $.ajax({
+        url: "http://localhost:8081/welcome",
+        type: "GET",
+        // headers:{"Content-Type":"application/json"},
+        dataType:"",
+        // data: obj,
+        success: function(response) {
+         console.log('the page was loaded', response);
+             console.log(response);
+
+            if(response.status==true)
+            {
+
+              welcome();
+
+            }
+            // else {
+            //   index();
+            // }
+
+
+        },
+        error: function(error) {
+            console.log('the page was not loaded', error);
+            console.log(obj);
+        }
+    });
+
 
     $('body').on("click", "#log", (function() {
 
@@ -21,7 +49,16 @@ $(document).ready(function() {
             success: function(response) {
                 console.log('the page was loaded', response);
                 console.log(response);
-                welcome();
+
+                if(response.session==true){
+                  welcome();
+
+                }
+
+                // if(response.status==true)
+                // {
+
+              // }
             },
             error: function(error) {
                 console.log('the page was not loaded', error);
@@ -54,6 +91,10 @@ $(document).ready(function() {
             data: obj,
             success: function(response) {
                 console.log('the page was loaded', response);
+                // console.log(response.message);
+                $('span').remove();
+                var a =response.message;
+                $("#reg").after('<span class="error"><br>'+a+'</span>');
                 console.log(response);
             },
             error: function(error) {
@@ -63,6 +104,23 @@ $(document).ready(function() {
         });
 
     }));
+    // $('body').on("click", "#logout", (function() {
+    //   $.ajax({
+    //       url: "http://localhost:8081/logout",
+    //       type: "GET",
+    //
+    //       success: function(response) {
+    //         if(response.status==true)
+    //         {
+    //           index();
+    //         }
+    //       },
+    //       complete: function(xhr, status) {
+    //           console.log("the request is complete!");
+    //       },
+    //
+    //   });
+// }));
 
 
 
@@ -70,12 +128,13 @@ $(document).ready(function() {
 function welcome() {
     // alert("hii");
     $.ajax({
-        url: "html/welcome.html",
+        url: "/html/welcome.html",
         type: "GET",
         datatype: "html",
         success: function(response) {
             console.log('the page was loaded', response);
             $('body').html(response);
+            // console.log("response in welcome",response);
             console.log('the page was not loaded', response);
         },
         complete: function(xhr, status) {
@@ -86,7 +145,25 @@ function welcome() {
 }
 
 
-function logout()
+// function logout()
+// {
+//   $.ajax({
+//       url: "index.html",
+//       type: "GET",
+//       datatype: "html",
+//       success: function(response) {
+//           console.log('the page was loaded', response);
+//           $('body').html(response);
+//           console.log('the page was not loaded', response);
+//       },
+//       complete: function(xhr, status) {
+//           console.log("the request is complete!");
+//       },
+//
+//   });
+// }
+
+function index()
 {
   $.ajax({
       url: "index.html",
