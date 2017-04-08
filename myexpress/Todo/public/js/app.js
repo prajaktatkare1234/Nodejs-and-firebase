@@ -1,7 +1,7 @@
 // Location polyfill for ie, ff < 21.0 and safari
-if (typeof window.location.origin === "undefined"){
-    window.location.origin = window.location.protocol + "//" + window.location.host;
-}
+// if (typeof window.location.origin === "undefined"){
+//     window.location.origin = window.location.protocol + "//" + window.location.host;
+// }
 
 // Utility (helper) functions
 var utils = {
@@ -34,16 +34,16 @@ var utils = {
 
     // Fetch json data from the given url
     // @return promise
-    fetch: function(url, data) {
-        var _data = data || {};
-        return $.ajax({
-            context: this,
-            url: window.location.origin + "/" + url,
-            data: _data,
-            method: "GET",
-            dataType: "JSON"
-        });
-    }
+    // fetch: function(url, data) {
+    //     var _data = data || {};
+    //     return $.ajax({
+    //         context: this,
+    //         url: window.location.origin + "/" + url,
+    //         data: _data,
+    //         method: "GET",
+    //         dataType: "JSON"
+    //     });
+    // }
 };
 
 
@@ -72,7 +72,16 @@ var router = {
 
         // Event handler that calls the render function on every hashchange.
         // The render function will look up the route and call the function
-        // that is mapped to the route name in the route map.
+        // that is mapped to the route name in the ro  // fetch: function(url, data) {
+    //     var _data = data || {};
+    //     return $.ajax({
+    //         context: this,
+    //         url: window.location.origin + "/" + url,
+    //         data: _data,
+    //         method: "GET",
+    //         dataType: "JSON"
+    //     });
+    // }ute map.
         // .bind(this) changes the scope of the function to the
         // current object rather than the element the event is bound to.
         $(window).on("hashchange", this.render.bind(this));

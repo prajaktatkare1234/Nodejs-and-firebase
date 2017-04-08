@@ -1,6 +1,6 @@
 #d1,#d2{
   border: 1px solid#d9d9d9;
-  border-radius: 10px;
+  border-radius: 15px;
   margin: 30px;
   padding: 7px;
   background-color: #ffffcc
@@ -9,10 +9,13 @@
 body{
   background-color: #001a33
 }
-a{
+a {
   display: block;
-
-}
+ }
 #h3{
   color: white
+}
+
+#logout {
+  display: block;
 }

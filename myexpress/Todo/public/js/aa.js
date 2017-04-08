@@ -10,6 +10,7 @@ $(document).ready(function() {
           {
           console.log(response);
             index();
+            // location.reload();
           }
         },
         complete: function(xhr, status) {
