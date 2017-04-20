@@ -9,20 +9,14 @@ $(document).ready(function() {
         success: function(response) {
          console.log('the page was loaded', response);
              console.log(response);
-
-            if(response.status==true)
+             if(response.status==true)
             {
-
               welcome();
-
-
             }
             // else {
             //   index();
             // }
-
-
-        },
+          },
         error: function(error) {
             console.log('the page was not loaded', error);
             console.log(obj);
@@ -36,16 +30,23 @@ $(document).ready(function() {
         var pwd = $("#lpwd").val();
         if(name=="")
         {
-          $('span').remove();
-          var a ="Enter email";
-          $("#log").after('<span class="error"><br>'+a+'</span>');
-          return;
-        }
+            $('span').remove();
+            $('#Username').after('<span class="error"> Enter email</span>');
+            return;
+          }
+            $('span').remove();
+          var inputVal = $('#Username').val();
+          var emailReg = /[a-z0-9._-]+@[a-z]+\.+[a-z]{2,3}$/;
+          if (!emailReg.test(inputVal)) {
+              $('#Username').after('<span class="error">Invalid Email </span>');
+              return;
+          }
+
         if(pwd=="")
         {
           $('span').remove();
           var a ="Enter password";
-          $("#log").after('<span class="error"><br>'+a+'</span>');
+          $("#lpwd").after('<span class="error"><br>'+a+'</span>');
           return;
 
         }
@@ -68,7 +69,7 @@ $(document).ready(function() {
                 console.log("my response",response);
                 $('span').remove();
                 var a =response.message;
-                $("#log").after('<span class="error"><br>'+a+'</span>');
+                $("#d3").after('<span class="error"><br>'+a+'</span>');
 
                 if(response.session==true){
                   welcome();
@@ -95,6 +96,10 @@ $(document).ready(function() {
 
 
             $('span').remove();
+            if(name==""){
+              $('#name').after('<span class="error"> Enter name</span>');
+              return;
+            }
             var inputVal = $('#name').val();
             var name = /[a-zA-Z]{4,}$/;
             if (!name.test(inputVal)) {
@@ -108,6 +113,10 @@ $(document).ready(function() {
 
 
             $('span').remove();
+            if(email==""){
+              $('#email').after('<span class="error"> Enter email</span>');
+              return;
+            }
             var inputVal = $('#email').val();
             var emailReg = /[a-z0-9._-]+@[a-z]+\.+[a-z]{2,3}$/;
             if (!emailReg.test(inputVal)) {
@@ -118,6 +127,10 @@ $(document).ready(function() {
 
 
             $('span').remove();
+            if(pwd==""){
+              $('#pwd').after('<span class="error"> Enter password </span>');
+              return;
+            }
             var inputVal = $('#pwd').val();
             var pwd = /[a-z]{5,8}$/;
             if (!pwd.test(inputVal)) {
@@ -125,10 +138,14 @@ $(document).ready(function() {
                 return;
             }
             $('span').remove();
+            if(repwd==""){
+              $('#repwd').after('<span class="error"> Re-type password</span>');
+              return;
+            }
             var inputVal = $('#pwd').val();
             // var pwd = /[a-z]{4,8}$/;
             if (inputVal!==repwd) {
-                $('#repwd').after('<span class="error">passwords are not same </span>');
+                $('#repwd').after('<span class="error">Passwords are not same </span>');
                 return;
             }
 

@@ -24,11 +24,14 @@ var firebase=require('../Config/config.js');
       cb(errors[0].msg,null)
      }
      else{
-     ref.orderByChild('email').equalTo(email).once("value",function(s){
+      //  console.log("jhfdsf");
+     ref.orderByChild("email").equalTo(email).once("value",function(s){
+
      if(s.val()===null){
 
-         ref.child(name).set({
 
+         ref.push().set({
+            name:name,
              email:email,
              pwd:pwd,
               date:d+""

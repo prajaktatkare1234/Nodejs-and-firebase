@@ -92,6 +92,8 @@ var router = {
     render: function() {
 
         // Get the keyword from the url.
+	if(!window.location.hash.split("/")[0])
+		window.location.hash = "#Signin";
         var keyName = window.location.hash.split("/")[0];
 
         // Grab anything after the hash
